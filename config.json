@@ -1,4 +1,4 @@
 {
   "sampling_interval": 5,
-  "processes": ["python.exe", "chrome.exe", "ms-teams.exe", "chrome.exe", "explorer.exe"]
+  "processes": ["python.exe", "chrome.exe", "outlook.exe","ms-teams.exe", "chrome.exe", "explorer.exe"]
 }
