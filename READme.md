@@ -1,6 +1,6 @@
 # Process Monitor
 
-![img.png](monitor.png)
+![img.png](dashboard.png)
 
 A lightweight FastAPI-based application to monitor specific system processes and display their status in a simple web dashboard.
 
