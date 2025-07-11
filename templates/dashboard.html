@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Process Monitor Dashboard</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f9fafc;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #222;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        tr:nth-child(even) {
+            background-color: #f0f0f0;
+        }
+        tr:hover {
+            background-color: #e0e0e0;
+            transition: background-color 0.3s;
+        }
+        .running {
+            color: #00b894;
+            font-weight: 600;
+        }
+        .not-running {
+            color: #d63031;
+            font-weight: 600;
+        }
+    </style>
+    <script>
+        // Auto-refresh every 5 seconds
+        setTimeout(() => { window.location.reload(); }, 5000);
+    </script>
+</head>
+<body>
+    <h1>Process Monitor Dashboard</h1>
+    <table>
+        <tr>
+            <th>Process</th>
+            <th>Status</th>
+            <th>CPU %</th>
+            <th>Memory (MB)</th>
+            <th>Threads</th>
+            <th>Lifetime (s)</th>
+        </tr>
+        {% for proc, info in status.items() %}
+        <tr>
+            <td>{{ proc }}</td>
+            <td class="{{ 'running' if info.running else 'not-running' }}">{{ 'RUNNING' if info.running else 'NOT RUNNING' }}</td>
+            <td>{{ "%.1f"|format(info.cpu_percent) }}</td>
+            <td>{{ "%.2f"|format(info.memory_mb) }}</td>
+            <td>{{ info.num_threads }}</td>
+            <td>{{ info.lifetime_sec }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
