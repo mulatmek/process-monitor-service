@@ -17,7 +17,7 @@ A lightweight FastAPI-based application to monitor specific system processes and
 Install all dependencies using `pip`:
 ```bash
 pip install -r requirements.txt
-
+```
 
 ## Configuration
 Define the processes you want to monitor in a `config.json` file in the same directory as `app.py`. Example:
