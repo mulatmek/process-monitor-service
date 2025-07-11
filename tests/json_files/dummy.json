@@ -1,0 +1,4 @@
+{
+  "sampling_interval": 5,
+  "processes": ["proc1", "proc2", "proc3"]
+}
