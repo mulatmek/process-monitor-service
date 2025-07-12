@@ -22,9 +22,12 @@ pip install -r requirements.txt
 ## Configuration
 Define the processes you want to monitor in a `config.json` file in the same directory as `app.py`. Example:
 
-### Process names across operating systems:
+- `sampling_interval`: time in seconds between checks.
+- `processes`: list of process names to monitor (case-insensitive).
 
-The processes list must match the actual process names as they appear on the target os.
+
+**Note** The processes list must match the actual process names as they appear on the target os.
+ 
 
 ##### on Linux/macOS, process names do not include .exe (e.g., chrome, python).
 ```json
@@ -41,8 +44,6 @@ The processes list must match the actual process names as they appear on the tar
   "processes": ["chrome.exe", "teams.exe", "python.exe"]
 }
 ```
-- `sampling_interval`: time in seconds between checks.
-- `processes`: list of process names to monitor (case-insensitive).
 
 ## How to run
 Run the server:
