@@ -75,13 +75,14 @@ http://127.0.0.1:8000/dashboard
 ## API Endpoints
 
 ### add_process Example:
+Adds a new process to the list of monitored processes.
 ```
 curl -X POST http://127.0.0.1:8000/add_process \
   -H "Content-Type: application/json" \
   -d '{"name": "chrome"}'
 ```
 ### delete_process Example:
-
+Removes a process from the list of monitored processes.
 ```
 curl -X DELETE http://127.0.0.1:8000/delete_process \
   -H "Content-Type: application/json" \
