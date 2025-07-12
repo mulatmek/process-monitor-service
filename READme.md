@@ -45,26 +45,42 @@ Define the processes you want to monitor in a `config.json` file in the same dir
 }
 ```
 
-## How to run
-Run the server:
+## How to run:
+
+### Run Locally:
 ```bash
 python server.py
 ```
 
+### Run with Docker:
+
+#### Build the Docker image:
+
+```
+docker build -t process-monitor .
+```
+
+#### Docker run :
+
+```
+docker run -p 8000:8000 -v /path/to/your/config.json:/app/config.json process-monitor
+
+```
+
 Then open your browser at:
-```
+
 http://127.0.0.1:8000/dashboard
-```
+
 
 ## API Endpoints
 
-### Add process Example:
+### add_process Example:
 ```
 curl -X POST http://127.0.0.1:8000/add_process \
   -H "Content-Type: application/json" \
   -d '{"name": "chrome"}'
 ```
-### Delete process Example:
+### delete_process Example:
 
 ```
 curl -X DELETE http://127.0.0.1:8000/delete_process \
