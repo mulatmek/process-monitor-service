@@ -21,6 +21,12 @@ pip install -r requirements.txt
 
 ## Configuration
 Define the processes you want to monitor in a `config.json` file in the same directory as `app.py`. Example:
+
+### Process names across operating systems:
+
+The processes list must match the actual process names as they appear on the target os.
+
+##### on Linux/macOS, process names do not include .exe (e.g., chrome, python).
 ```json
 {
   "sampling_interval": 5,
@@ -28,6 +34,13 @@ Define the processes you want to monitor in a `config.json` file in the same dir
 }
 ```
 
+##### on Windows, process names usually include .exe (e.g., chrome.exe, python.exe).
+```json
+{
+  "sampling_interval": 5,
+  "processes": ["chrome.exe", "teams.exe", "python.exe"]
+}
+```
 - `sampling_interval`: time in seconds between checks.
 - `processes`: list of process names to monitor (case-insensitive).
 
