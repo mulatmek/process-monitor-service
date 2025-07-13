@@ -2,7 +2,6 @@ import json
 import psutil
 import threading
 import time
-import logger
 from typing import Dict, Any
 from logger import logger
 
@@ -42,7 +41,7 @@ class ProcessMonitor:
                             'num_threads': proc.info['num_threads'],
                             'lifetime_sec': int(lifetime)
                         }
-                        logger.info(f"Process '{name}' is running: CPU={cpu:.2f}%, MEM={mem_mb:.2f}MB, "
+                        logger.debug(f"Process '{name}' is running: CPU={cpu:.2f}%, MEM={mem_mb:.2f}MB, "
                                      f"Threads={proc.info['num_threads']}, Lifetime={int(lifetime)}s")
                 except (psutil.NoSuchProcess, psutil.AccessDenied) as e:
                     logger.debug(f"Skipping process: {e}")
